@@ -14,12 +14,22 @@ class UsersTableSeeder extends Seeder
                 'id'             => 1,
                 'name'           => 'Admin',
                 'email'          => 'admin@admin.com',
-                'password'       => bcrypt('password'),
+                'password'       => bcrypt('admin'),
+                'remember_token' => null,
+                'locale'         => '',
+            ],
+            [
+                'id'             => 2,
+                'name'           => 'User',
+                'email'          => 'user@user.com',
+                'password'       => bcrypt('user'),
                 'remember_token' => null,
                 'locale'         => '',
             ],
         ];
 
         User::insert($users);
+
+        User::factory(10)->create();
     }
 }
